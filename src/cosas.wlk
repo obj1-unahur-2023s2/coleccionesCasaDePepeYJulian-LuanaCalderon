@@ -1,6 +1,8 @@
 // Como ya sabemos crear objetos y definir algunos métodos simples, 
 // algunos los tenemos parcialmente definidos. Completar todo los demás
 // para satisfacer lo que pide el enunciado.
+import cuentaBancaria.*
+import casa.*
 
 object heladera {
 	method precio() { return 200000 }
@@ -17,13 +19,15 @@ object cama {
 object tiraDeAsado {
 	method precio() { return 3500 }
 	method esComida() { return true }
-	method esElectrodomestico() { return false }	
+	method esElectrodomestico() { return false }
+	method tipoComida() = platoDeComida	
 }
 
 object paqueteDeFideos {
 	method precio() { return 500 }
 	method esComida() { return true }
-	method esElectrodomestico() { return false }	
+	method esElectrodomestico() { return false }
+	method tipoComida() = platoDeComida	
 }
 
 object plancha {
@@ -35,7 +39,9 @@ object plancha {
 object milanesa {
 	method precio() { return 2600  }
 	method esComida() { return true }
-	method esElectrodomestico() { return false }	
+	method esElectrodomestico() { return false }
+	method tipoComida() = platoDeComida
+		
 }
 
 object salsaDeTomate {
@@ -77,14 +83,17 @@ object dolar {
 
 object comidaAderezo {}
 
+object platoDeComida { }
+
+
 object packDeComida {
-	var  plato 
-	var  aderezos
+	var platoDeComida 
+	var aderezos
 	
 	method esComida() { return true }
-	method precio() { return plato.precio() + aderezos.precio()}
+	method precio() { return platoDeComida.precio() + aderezos.precio()}
 	method esElectrodomestico() { return false }	
-	method plato() = plato
+	method plato() = platoDeComida
 	method aderezos() = aderezos 
 	
 }

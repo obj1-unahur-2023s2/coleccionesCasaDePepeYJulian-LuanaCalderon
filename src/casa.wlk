@@ -1,10 +1,17 @@
 import cosas.* 
+import cuentaBancaria.*
 
 object casaDePepeYJulian {
 	const  cosas = []
+	var property cuentaBancaria
 	
-	method comprar(cosa) = cosas.add(cosa)
+
 	
+	method comprar(cosa) {
+        cosas.add(cosa)
+        cuentaBancaria.extraer(cosa.precio())
+    }
+    
 	method cantidadDeCosasCompradas() = cosas.size()
 	
 	method tieneComida() =  cosas.any({cosa => cosa.esComida()})
@@ -22,6 +29,12 @@ object casaDePepeYJulian {
 	method queFaltaComprar(lista) {} //CONSULTAR
 	
 	method faltaComida() = cosas.filter({cosa => cosa.esComida()}).size() < 2
+	
+	method gastar(importe) = cuentaBancaria.extraer(importe)
+    
+	method dineroDisponible() = cuentaBancaria.saldo()
+    
+	
 	
 	
 }
